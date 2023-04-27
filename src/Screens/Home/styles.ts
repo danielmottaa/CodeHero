@@ -1,7 +1,7 @@
+import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  flex: 1;
   background-color: ${({ theme }) => theme.Colors.WHITE};
 `;
 
@@ -41,7 +41,7 @@ export const BoxSeparatorHeader = styled.View`
 
 export const LabelName = styled.Text`
   color: ${({ theme }) => theme.Colors.WHITE}
-  margin-left: 25%;
+  margin-left: 26.5%;
   font-size: 16px;
   font-weight: 500;
 `;
@@ -70,3 +70,5 @@ export const LabelHeroName = styled.Text`
 export const LineSeparatorHero = styled.View`
   border: 0.5px solid ${({ theme }) => theme.Colors.RED_PRIMARY};
 `;
+
+export const FlatListCustom = styled(FlatList)``;
