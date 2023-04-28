@@ -64,6 +64,7 @@ export const ImageCustom = styled.Image`
 
 export const LabelHeroName = styled.Text`
   color: ${({ theme }) => theme.Colors.GRAY_21};
+  flex: 1;
   margin-left: 20px;
 `;
 
