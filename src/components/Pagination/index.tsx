@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 import { IPagination } from './Models';
 
 import * as S from './styles';
+import Colors from '../../global/colors';
 
 const Pagination: React.FC<IPagination> = ({
   totalPosts,
@@ -34,7 +35,9 @@ const Pagination: React.FC<IPagination> = ({
   return (
     <S.Container>
       {currentPage > 1 && (
-        <Text onPress={setPreview}> ESQUERDA </Text>
+        <S.CustomButtonArrow onPress={setPreview}>
+          <AntDesign name="caretleft" size={25} color={Colors.RED_PRIMARY} />
+        </S.CustomButtonArrow>
       )}
 
       {pages.map((page: any, index: any) => {
@@ -47,7 +50,9 @@ const Pagination: React.FC<IPagination> = ({
         )
       })}
       {currentPage < pages.length && (
-        <Text onPress={setNext}> DIREITA </Text>
+        <S.CustomButtonArrow onPress={setNext}>
+          <AntDesign name="caretright" size={25} color={Colors.RED_PRIMARY} />
+        </S.CustomButtonArrow>
       )}
     </S.Container>
   );

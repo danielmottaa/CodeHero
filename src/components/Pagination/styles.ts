@@ -7,6 +7,7 @@ export const Container = styled.View`
 
 export const BoxButton = styled.View`
   padding: 18px 10px 24px 10px;
+  margin-top: 1px;
 `;
 
 export const CustomButton = styled.TouchableOpacity<{ currentPage?: boolean }>`
@@ -17,6 +18,10 @@ export const CustomButton = styled.TouchableOpacity<{ currentPage?: boolean }>`
   justify-content: center;
   align-items: center;
   background-color: ${props => props.currentPage ? ({ theme }) => theme.Colors.RED_PRIMARY : ({ theme }) => theme.Colors.WHITE}};
+`;
+
+export const CustomButtonArrow = styled.TouchableOpacity`
+  justify-content: center;
 `;
 
 export const LabelPage = styled.Text<{ currentPage?: boolean }>`
