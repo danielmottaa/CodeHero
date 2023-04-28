@@ -4,24 +4,23 @@ import StatusBar from '../../components/StatusBar';
 import Colors from '../../global/colors';
 import Input from '../../components/Input';
 import * as S from './styles';
-import api from '../../services/api';
+import api, { API_KEY, HASH_KEY } from '../../services/api';
 import Pagination from '../../components/Pagination';
+import { useNavigation } from '@react-navigation/native';
 
 const Home: React.FC = () => {
 
+  const { navigate }: any = useNavigation();
   const dataHero = useRef<any>(null);
   const dataPerPage = useRef(4);
   const dataHeroFiltered = useRef<any>(null)
   const [pagination, setPagination] = useState(1);
   const [currentPosts, setcurrentPosts] = useState([]);
 
-  const apiKey = 'fd49d93aab08c57ab8cb2f23cdd95def';
-  const hackApiKey = '6066446c6e90a054540043dc3744db9b'
-
   useEffect(() => {
     const getApiData = async () => {
       try {
-        const response = await api.get(`characters?ts=1&apikey=${apiKey}&hash=${hackApiKey}`);
+        const response = await api.get(`characters?ts=1&apikey=${API_KEY}&hash=${HASH_KEY}`);
         const { data } = response.data;
         dataHero.current = data?.results;
         setcurrentPosts(data.results.slice(firstPostIndex, lastPostIndex))
@@ -86,6 +85,7 @@ const Home: React.FC = () => {
   }
 
   const handleInfoHero = (item: any) => {
+    navigate('HeroDetail', { item })
   }
 
   const renderItem = ({ item }: any) => {

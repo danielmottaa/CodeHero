@@ -1,14 +1,19 @@
-import Home from './src/screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from 'styled-components';
 import theme from './src/global/theme';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Routes from './src/routes/';
+
+
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <ThemeProvider theme={theme}>
-        <Home />
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <SafeAreaProvider>
+        <ThemeProvider theme={theme}>
+          <Routes />
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </NavigationContainer>
   );
 }
