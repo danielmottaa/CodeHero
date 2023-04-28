@@ -86,7 +86,6 @@ const Home: React.FC = () => {
   }
 
   const handleInfoHero = (item: any) => {
-    console.log('cliquei', { item });
   }
 
   const renderItem = ({ item }: any) => {

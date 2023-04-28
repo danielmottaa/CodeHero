@@ -1,4 +1,4 @@
-import Home from './src/Screens/Home';
+import Home from './src/screens/Home';
 import { ThemeProvider } from 'styled-components';
 import theme from './src/global/theme';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
