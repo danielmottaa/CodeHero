@@ -1,13 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useFonts, Roboto_300Light, Roboto_900Black } from '@expo-google-fonts/roboto';
-import StatusBar from '../../components/StatusBar';
+
+import StatusBar from '@components/StatusBar';
+import Input from '@components/Input';
+import Pagination from '@components/Pagination';
+
 import Colors from '../../global/colors';
-import Input from '../../components/Input';
-import * as S from './styles';
 import api, { API_KEY, HASH_KEY } from '../../services/api';
-import Pagination from '../../components/Pagination';
+
 import { useNavigation } from '@react-navigation/native';
 import { showMessage } from "react-native-flash-message";
+import * as S from './styles';
 
 const Home: React.FC = () => {
 
