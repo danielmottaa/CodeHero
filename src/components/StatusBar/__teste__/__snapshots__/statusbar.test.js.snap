@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StatusBar /> renders correctly 1`] = `
+<View
+  height={45}
+  style={
+    [
+      {
+        "backgroundcolor": "",
+        "height": 45,
+      },
+    ]
+  }
+/>
+`;

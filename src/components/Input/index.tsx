@@ -12,6 +12,7 @@ const Input: React.FC<IInput> = ({
   return (
     <S.Container>
       <S.InputCustom
+        testID={'input'}
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
