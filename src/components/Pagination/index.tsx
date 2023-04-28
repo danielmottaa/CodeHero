@@ -42,9 +42,15 @@ const Pagination: React.FC<IPagination> = ({
 
       {pages.map((page: any, index: any) => {
         return (
-          <S.BoxButton key={index}>
-            <S.CustomButton key={index} onPress={() => setCurrentPages(page)} currentPage={page === currentPage ? currentPage : !currentPage}>
-              <S.LabelPage currentPage={page === currentPage ? currentPage : !currentPage}>{page}</S.LabelPage>
+          <S.BoxButton key={index}
+          >
+            <S.CustomButton
+              key={index}
+              testID='buttonCustom'
+              onPress={() => setCurrentPages(page)}
+              currentPage={page === currentPage ? currentPage : !currentPage}
+            >
+              <S.LabelPage testID='textButtonCustom' currentPage={page === currentPage ? currentPage : !currentPage}>{page}</S.LabelPage>
             </S.CustomButton>
           </S.BoxButton>
         )

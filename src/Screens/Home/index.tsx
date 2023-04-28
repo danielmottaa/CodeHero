@@ -139,6 +139,7 @@ const Home: React.FC = () => {
             )}
             {!loading && (
               <S.FlatListCustom
+                testID='flatlist'
                 data={currentPosts}
                 renderItem={renderItem}
                 keyExtractor={(item: any) => item.id}
