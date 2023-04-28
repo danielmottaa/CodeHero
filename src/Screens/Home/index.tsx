@@ -7,6 +7,7 @@ import * as S from './styles';
 import api, { API_KEY, HASH_KEY } from '../../services/api';
 import Pagination from '../../components/Pagination';
 import { useNavigation } from '@react-navigation/native';
+import { showMessage } from "react-native-flash-message";
 
 const Home: React.FC = () => {
 
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
   const dataPerPage = useRef(4);
   const dataHeroFiltered = useRef<any>(null)
   const [pagination, setPagination] = useState(1);
+  const [loading, setLoading] = useState(true);
   const [currentPosts, setcurrentPosts] = useState([]);
 
   useEffect(() => {
@@ -25,7 +27,13 @@ const Home: React.FC = () => {
         dataHero.current = data?.results;
         setcurrentPosts(data.results.slice(firstPostIndex, lastPostIndex))
       } catch (error) {
-        console.log(error)
+        showMessage({
+          message: "Ops...",
+          description: "Algo deu errado",
+          type: "danger",
+        });
+      } finally {
+        setLoading(false)
       }
     }
     getApiData();
@@ -116,21 +124,36 @@ const Home: React.FC = () => {
       <S.BoxSeparatorHeader>
         <S.LabelName>Nome</S.LabelName>
       </S.BoxSeparatorHeader>
-      <S.BoxContent>
-        <S.FlatListCustom
-          data={currentPosts}
-          renderItem={renderItem}
-          keyExtractor={(item: any) => item.id}
-          showsVerticalScrollIndicator={false}
-
-        />
-      </S.BoxContent>
-      <Pagination
-        totalPosts={dataHeroFiltered.current ? dataHeroFiltered.current.length : dataHero.current?.length}
-        postsPerPage={dataPerPage.current}
-        setCurrentPages={setPagination}
-        currentPage={pagination}
-      />
+      {currentPosts?.length === 0
+        ?
+        <S.BoxEmptySearch>
+          <S.LabelEmptySearch>Nenhum dado encontrato</S.LabelEmptySearch>
+        </S.BoxEmptySearch>
+        :
+        <>
+          <S.BoxContent>
+            {loading && (
+              <S.BoxEmptySearch>
+                <S.LoadingCustom size={'large'} color={Colors.RED_PRIMARY} />
+              </S.BoxEmptySearch>
+            )}
+            {!loading && (
+              <S.FlatListCustom
+                data={currentPosts}
+                renderItem={renderItem}
+                keyExtractor={(item: any) => item.id}
+                showsVerticalScrollIndicator={false}
+              />
+            )}
+          </S.BoxContent>
+          <Pagination
+            totalPosts={dataHeroFiltered.current ? dataHeroFiltered.current.length : dataHero.current?.length}
+            postsPerPage={dataPerPage.current}
+            setCurrentPages={setPagination}
+            currentPage={pagination}
+          />
+        </>
+      }
     </S.Container>
   );
 }

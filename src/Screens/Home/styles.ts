@@ -1,5 +1,6 @@
 import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
+import { ActivityIndicator } from 'react-native';
 
 export const Container = styled.View`
 flex: 1;
@@ -74,3 +75,19 @@ export const LineSeparatorHero = styled.View`
 `;
 
 export const FlatListCustom = styled(FlatList)``;
+
+export const BoxEmptySearch = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const LabelEmptySearch = styled.Text`
+  color: ${({ theme }) => theme.Colors.GRAY_21};
+  font-weight: bold;
+  font-size: 20px;
+`;
+
+export const LoadingCustom = styled(ActivityIndicator)`
+margin-top: 100%;
+`;
