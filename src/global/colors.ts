@@ -15,6 +15,8 @@ const Colors = {
     DIM_GRAY: '#696969',
     GRAY_21: '#363636',
     WHITE: '#FFF',
+    ORANGE_MARVEL: '#f78f3f',
+    GHOST_WHITE: '#F8F8FF',
   };
   
   export default Colors;
