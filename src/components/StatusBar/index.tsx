@@ -1,15 +1,11 @@
 import React from 'react';
-import { StatusBar as RnStatusBar } from 'react-native';
-// import {
-//   useSafeAreaInsets
-// } from 'react-native-safe-area-context';
+import { Platform, StatusBar as RnStatusBar } from 'react-native';
 import { IStatusBar } from './Models';
 import * as S from './styles';
 
 const StatusBar: React.FC<IStatusBar> = ({ backgroundColor, barStyle }) => {
-  // const height = useSafeAreaInsets();
   return (
-    <S.Container height={45} backgroundColor={backgroundColor}>
+    <S.Container height={Platform.OS === 'ios' ? 45 : 0} backgroundColor={backgroundColor}>
       <RnStatusBar
         animated={true}
         backgroundColor={backgroundColor}

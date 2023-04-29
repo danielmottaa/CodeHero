@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { ActivityIndicator } from 'react-native';
 
 export const Container = styled.View`
-flex: 1;
+  flex: 1;
   background-color: ${({ theme }) => theme.Colors.WHITE};
 `;
 
